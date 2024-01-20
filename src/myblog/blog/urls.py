@@ -1,7 +1,8 @@
 from django.urls import path
-from blog.views import leer_anime, leer_manga
+from blog.views import ver_anime, leer_manga, index
 
 urlpatterns = [
-    path('anime/', leer_anime),
-    path('manga/', leer_manga)
+    path('', index),
+    path('anime/', ver_anime),
+    path('manga/', leer_manga),
 ]
