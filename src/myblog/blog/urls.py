@@ -1,5 +1,5 @@
 from django.urls import path
-from blog.views import index, animes, mangas, videojuegos, about
+from blog.views import index, animes, mangas, videojuegos, usuarios
 
 urlpatterns = [
     path('', index, name='index'),
@@ -7,5 +7,5 @@ urlpatterns = [
     path('manga/', mangas, name='mangas'),
     # path('novela/', novelas, name='novelas'),
     path('videojuego/', videojuegos, name='videojuegos'),
-    path('about/', about, name='about'),
+    path('usuario/', usuarios, name='usuarios')
 ]

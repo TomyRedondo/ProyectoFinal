@@ -26,5 +26,5 @@ def mangas(request):
 def videojuegos(request):
     return render(request, 'videojuegos.html')
 
-def about(request):
-    return render(request, 'about.html')
+def usuarios(request):
+    return render(request, 'usuarios.html')
