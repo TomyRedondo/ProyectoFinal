@@ -1,8 +1,11 @@
 from django.urls import path
-from blog.views import ver_anime, leer_manga, index
+from blog.views import index, animes, mangas, videojuegos, about
 
 urlpatterns = [
-    path('', index),
-    path('anime/', ver_anime),
-    path('manga/', leer_manga),
+    path('', index, name='index'),
+    path('anime/', animes, name='animes'),
+    path('manga/', mangas, name='mangas'),
+    # path('novela/', novelas, name='novelas'),
+    path('videojuego/', videojuegos, name='videojuegos'),
+    path('about/', about, name='about'),
 ]

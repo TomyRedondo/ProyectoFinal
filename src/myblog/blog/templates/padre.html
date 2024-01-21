@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Landing Page - Start Bootstrap Theme</title>
+        <!-- Favicon-->
+        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+        <!-- Bootstrap icons-->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" type="text/css" />
+        <!-- Google fonts-->
+        <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css" />
+        <!-- Core theme CSS (includes Bootstrap)-->
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+    </head>
+    <body>
+        <!-- Navigation-->
+        <nav class="navbar navbar-light bg-light static-top">
+            <div class="container">
+                <a class="navbar-brand" href="{% url 'index' %}">Inicio</a>
+                <a class="navbar-brand" href="{% url 'animes' %}">Anime</a>
+                <a class="navbar-brand" href="{% url 'mangas' %}">Manga</a>
+                <a class="navbar-brand" href="{% url 'videojuegos' %}">Videojuego</a>
+                <a class="navbar-brand" href="{% url 'about' %}">About</a>
+                <a class="btn btn-primary" href="#signup">Iniciar Sesión</a>
+            </div>
+        </nav>
+        <!-- Masthead-->
+        <header class="masthead">
+            <div class="container position-relative">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="text-center text-white">
+                            <!-- Page heading-->
+                            <h1 class="mb-5">Proyecto Final Coderhouse - Tomás Redondo</h1><br>
+                            <h4>Acerca de mi 🔽</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Icons Grid-->
+        <!-- Esto cambiará segun la vista que llame-->
+        {% block contenidoQueCambia %}
+        {% endblock %}
+
+        <!-- Footer-->
+        <section class="features-icons bg-light text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                            <div class="features-icons-icon d-flex"><i class="bi-window m-auto text-primary"></i></div>
+                            <h3>Trabajo</h3>
+                            <p class="lead mb-0">
+                                <li>Empleado en una fábrica de ropa</li>
+                                </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-5 mb-lg-0 mb-lg-3">
+                            <div class="features-icons-icon d-flex"><i class="bi-layers m-auto text-primary"></i></div>
+                            <h3>Estudios</h3>
+                            <p class="lead mb-0">
+                                <li>Secundario Completo</li>
+                                <li>Estudiando Programación</li>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="features-icons-item mx-auto mb-0 mb-lg-3">
+                            <div class="features-icons-icon d-flex"><i class="bi-terminal m-auto text-primary"></i></div>
+                            <h3>Idiomas</h3>
+                            <p class="lead mb-0">
+                                <li>Estudiando Inglés</li>
+                                <li>Idioma Japonés JLPT N5</li>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Image Showcases-->
+        <section class="showcase">
+            <div class="container-fluid p-0">
+                <div class="row g-0">
+                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('https://i.blogs.es/b3410f/python-netflix/840_560.jpg')" width="300" height="200"></div>
+                    <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                        <h2>Estudiando Programación en Python</h2>
+                        <p class="lead mb-0">Nivel Inicial</p>
+                    </div>
+                </div>
+                <div class="row g-0">
+                    <div class="col-lg-6 text-white showcase-img" style="background-image: url('https://i0.wp.com/revistacantera.com/wp-content/uploads/2014/05/japones.jpg?fit=1260%2C844&ssl=1')"></div>
+                    <div class="col-lg-6 my-auto showcase-text">
+                        <h2>Estudiando Japonés</h2>
+                        <p class="lead mb-0">Nivel JLPT N5</p>
+                    </div>
+                </div>
+                <div class="row g-0">
+                    <div class="col-lg-6 order-lg-2 text-white showcase-img" style="background-image: url('https://altraducciones.com/sites/default/files/blog/117132112_s.jpg')"></div>
+                    <div class="col-lg-6 order-lg-1 my-auto showcase-text">
+                        <h2>Estudiando Inglés</h2>
+                        <p class="lead mb-0">Nivel Básico</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Footer-->
+        <footer class="footer bg-light">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-6 h-100 text-center text-lg-start my-auto">
+                        <ul class="list-inline mb-2">
+                            <li class="list-inline-item"><a href="#!">About</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item"><a href="#!">Contact</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item"><a href="#!">Terms of Use</a></li>
+                            <li class="list-inline-item">⋅</li>
+                            <li class="list-inline-item"><a href="#!">Privacy Policy</a></li>
+                        </ul>
+                        <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2023. All Rights Reserved.</p>
+                    </div>
+                    <div class="col-lg-6 h-100 text-center text-lg-end my-auto">
+                        <h4>CONTACTO</h4>
+                        <ul class="list-inline mb-0">
+                            <li class="list-inline-item me-4">
+                                <a href="https://www.facebook.com/tomy.redondo.7/" target="_blank"><i class="bi-facebook fs-3"></i></a>
+                            </li>
+                            <li class="list-inline-item me-4">
+                                <a href="https://www.linkedin.com/in/tomas-redondo-b4253b291/" target="_blank"><i class="bi-linkedin fs-3"></i></a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="https://www.instagram.com/tomy.redondo/" target="_blank"><i class="bi-instagram fs-3"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Bootstrap core JS-->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <!-- Core theme JS-->
+        <script src="js/scripts.js"></script>
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <!-- * *                               SB Forms JS                               * *-->
+        <!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+        <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+    </body>
+</html>
