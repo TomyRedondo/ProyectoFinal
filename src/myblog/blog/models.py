@@ -4,6 +4,9 @@ class Anime(models.Model):
     nombre = models.CharField(max_length=30)
     autor = models.CharField(max_length=20)
     email = models.EmailField()
+    
+    class Meta:
+        ordering=["nombre"]
 
     def __str__(self):
         return f"{self.nombre}, {self.autor}"
@@ -12,6 +15,9 @@ class Manga(models.Model):
     nombre = models.CharField(max_length=30)
     autor = models.CharField(max_length=20)
     email = models.EmailField()
+    
+    class Meta:
+        ordering=["nombre"]
     
     def __str__(self):
         return f"{self.nombre}, {self.autor}"
@@ -29,6 +35,9 @@ class Videojuego(models.Model):
     nombre = models.CharField(max_length=30)
     fechaDeEntrega = models.DateField()
     entregado = models.BooleanField()
+    
+    class Meta:
+        ordering=["nombre"]
     
  
     
