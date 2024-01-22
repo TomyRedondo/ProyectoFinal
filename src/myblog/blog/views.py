@@ -8,8 +8,8 @@ def index(request):
 def animes(request):
     return render(request, 'animes.html')
 
-def mangas(request):
-    return render(request, 'mangas.html')
+# def mangas(request):
+#     return render(request, 'mangas.html')
 
 def videojuegos(request):
     return render(request, 'videojuegos.html')
@@ -31,3 +31,6 @@ def usuarios_manga(request):
         return render(request, 'index.html')
         
     return render(request, 'usuarios.html')
+
+
+
