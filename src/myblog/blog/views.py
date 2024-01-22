@@ -17,16 +17,16 @@ def videojuegos(request):
 def usuarios_manga(request):
     
     if request.method == "POST":
-        nombre = request.POST.get("nombre")
-        seudonimo = request.POST.get("seudonimo")
+        nombreDelManga = request.POST.get("nombreDelManga")
+        autor = request.POST.get("autor")
         email = request.POST.get("email")
         print(f"""
-              Nombre: {nombre}
-              Seudo: {seudonimo}
+              Nombre: {nombreDelManga}
+              Seudo: {autor}
               Email: {email}
               """)
         
-        manga = Manga(nombre=nombre, seudonimo=seudonimo, email=email)
+        manga = Manga(nombreDelManga=nombreDelManga, autor=autor, email=email)
         manga.save()
         return render(request, 'index.html')
         

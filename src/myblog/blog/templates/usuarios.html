@@ -9,8 +9,8 @@
     <h1>Usuarios de Mangas</h1>
     <form action="{% url 'usuarios_manga' %}" method="post">
         {% csrf_token %}
-        <p>Nombre: <input type="text" name="nombre"></p>
-        <p>Seudo: <input type="text" name="seudonimo"></p>
+        <p>Nombre del Manga: <input type="text" name="nombreDelManga"></p>
+        <p>Autor: <input type="text" name="autor"></p>
         <p>Email: <input type="email" name="email"></p>
         <input type="submit" value="Enviar">
     </form>
