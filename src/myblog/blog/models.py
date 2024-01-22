@@ -2,34 +2,27 @@ from django.db import models
 
 class Anime(models.Model):
     nombre = models.CharField(max_length=30)
-    autor = models.CharField(max_length=20)
+    seudonimo = models.CharField(max_length=20)
     email = models.EmailField()
     
     class Meta:
         ordering=["nombre"]
 
     def __str__(self):
-        return f"{self.nombre}, {self.autor}"
+        return f"{self.nombre}, {self.seudonimo}"
+    
     
 class Manga(models.Model):
     nombre = models.CharField(max_length=30)
-    autor = models.CharField(max_length=20)
+    seudonimo = models.CharField(max_length=20)
     email = models.EmailField()
     
     class Meta:
         ordering=["nombre"]
     
     def __str__(self):
-        return f"{self.nombre}, {self.autor}"
-    
-    
-# class Novela(models.Model):
-#     nombre = models.CharField(max_length=30)
-#     año = models.IntegerField()
-    
-#     def __str__(self):
-#         return f"{self.nombre} -- {self.año}"
-    
+        return f"{self.nombre}, {self.seudonimo}"
+
         
 class Videojuego(models.Model):
     nombre = models.CharField(max_length=30)

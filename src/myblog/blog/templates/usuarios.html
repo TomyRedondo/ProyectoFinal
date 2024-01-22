@@ -1,11 +1,3 @@
-<!-- {% extends 'padre.html'%}
-{% load static %}
-{% block contenidoQueCambia %}
-
-<h1> Informacion heredada usuarios</h1>
-
-{% endblock %} -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,6 +6,13 @@
     <title>Usuarios</title>
 </head>
 <body>
-    <h1>Bloque de usuarios</h1>
+    <h1>Usuarios de Mangas</h1>
+    <form action="{% url 'usuarios_manga' %}" method="post">
+        {% csrf_token %}
+        <p>Nombre: <input type="text" name="nombre"></p>
+        <p>Seudo: <input type="text" name="seudonimo"></p>
+        <p>Email: <input type="email" name="email"></p>
+        <input type="submit" value="Enviar">
+    </form>
 </body>
 </html>

@@ -1,15 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from blog.models import Anime
-
-
-# def ver_anime(request):
-#     return HttpResponse("Ver Anime")
-
-# def leer_manga(request):
-#     return render(request, 'plantilla.html', {"nombre": "Tomy"})
-
-
+from blog.models import Anime, Manga, Videojuego
 
 def index(request):
     return render(request, 'index.html')
@@ -20,11 +11,23 @@ def animes(request):
 def mangas(request):
     return render(request, 'mangas.html')
 
-# def novelas(request):
-#     return render(request, 'novelas.html')
-
 def videojuegos(request):
     return render(request, 'videojuegos.html')
 
-def usuarios(request):
+def usuarios_manga(request):
+    
+    if request.method == "POST":
+        nombre = request.POST.get("nombre")
+        seudonimo = request.POST.get("seudonimo")
+        email = request.POST.get("email")
+        print(f"""
+              Nombre: {nombre}
+              Seudo: {seudonimo}
+              Email: {email}
+              """)
+        
+        manga = Manga(nombre=nombre, seudonimo=seudonimo, email=email)
+        manga.save()
+        return render(request, 'index.html')
+        
     return render(request, 'usuarios.html')
