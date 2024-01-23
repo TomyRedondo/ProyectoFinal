@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animes</title>
+</head>
+<body>
+    <h1>Usuarios de Anime</h1>
+    <form action="{% url 'usuarios_anime' %}" method="post">
+        {% csrf_token %}
+        <p>Nombre del Anime: <input type="text" name="nombreDelAnime"></p>
+        <p>Autor: <input type="text" name="autor"></p>
+        <p>Email: <input type="email" name="email"></p>
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>

@@ -25,12 +25,12 @@ class Manga(models.Model):
 
         
 class Videojuego(models.Model):
-    nombre = models.CharField(max_length=30)
-    fechaDeEntrega = models.DateField()
-    entregado = models.BooleanField()
+    nombreDelJuego = models.CharField(max_length=30)
+    autor = models.CharField(max_length=20)
+    email = models.EmailField()
     
     class Meta:
-        ordering=["nombre"]
+        ordering=["nombreDelJuego"]
     
  
     
