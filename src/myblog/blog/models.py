@@ -26,7 +26,7 @@ class Manga(models.Model):
         
 class Videojuego(models.Model):
     nombreDelJuego = models.CharField(max_length=30)
-    autor = models.CharField(max_length=20)
+    autor = models.CharField(max_length=30, default='autor')
     email = models.EmailField()
     
     class Meta:
