@@ -20,15 +20,16 @@ def mangas(request):
         if datos_manga.is_valid():
             
             # datos_base = datos_manga.cleaned_data
-            informacion = datos_manga.cleaned_data
-            # nombre = datos.get("nombreDelManga")
-            # autor = datos.get("autor")
-            # email = datos.get("email")
+            datos = datos_manga.cleaned_data
+            nombre = datos.get("nombreDelManga")
+            autor = datos.get("autor")
+            email = datos.get("email")
             
-            datos = Manga(nombreDelManga=informacion["nombreDelManga"], autor=informacion["autor"], email=informacion["email"])
-            datos.save
+            datos = Manga(nombreDelManga=datos["nombreDelManga"], autor=datos["autor"], email=datos["email"])
+            datos.save()
             
             return render(request, 'index.html')
+            # datos = Manga(nombreDelManga=datos_base["nombreDelManga"], autor=datos_base["autor"], email=datos_base["email"])
 
             
         
