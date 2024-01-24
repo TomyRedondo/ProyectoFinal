@@ -9,9 +9,12 @@
     <h1>Usuarios de Mangas</h1>
     <form action="{% url 'usuarios_manga' %}" method="post">
         {% csrf_token %}
-        <p>Nombre del Manga: <input type="text" name="nombreDelManga"></p>
+        <p>Nombre del Anime: <input type="text" name="nombreDelAnime"></p>
         <p>Autor: <input type="text" name="autor"></p>
         <p>Email: <input type="email" name="email"></p>
+        <table>
+            {{formulario.as_table}}
+        </table>
         <input type="submit" value="Enviar">
     </form>
 </body>

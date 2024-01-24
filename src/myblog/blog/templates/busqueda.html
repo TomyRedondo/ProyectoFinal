@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Proyecto Final Coder</title>
+    <title>Busqueda</title>
 </head>
 <body>
-    <h1>Template</h1>
-    <h2>Mi nombre {{nombre}}</h2>
-    {% for curso in nombre %}
-    <li>{{ curso }}</li>
+    <h2>Resultados de la Busqueda</h2>
+    {% for manga in mangas %}
+    <li>{{ manga.nombreDelManga }}</li>
+    <li>{{ manga.autor }}</li>
     {% endfor %}
 </body>
 </html>

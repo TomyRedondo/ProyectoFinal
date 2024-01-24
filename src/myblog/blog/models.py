@@ -31,6 +31,9 @@ class Videojuego(models.Model):
     
     class Meta:
         ordering=["nombreDelJuego"]
+        
+    def __str__(self):
+        return f"{self.nombreDelJuego}, {self.autor}"
     
  
     

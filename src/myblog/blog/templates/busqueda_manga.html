@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Busqueda Manga</title>
+</head>
+<body>
+    <form action="{% url 'busqueda_manga' %}" method="get">
+        <input type="text" name="manga" id="manga">
+        <input type="submit" value="Enviar">
+    </form>
+</body>
+</html>
