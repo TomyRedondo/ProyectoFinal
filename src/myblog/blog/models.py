@@ -14,14 +14,15 @@ class Manga(models.Model):
         
 class Videojuego(models.Model):
     nombreDelJuego = models.CharField(max_length=30)
-    autor = models.CharField(max_length=30, default='Desconocido')
+    # autor = models.CharField(max_length=30, default='Desconocido')
+    fecha = models.DateField()
     email = models.EmailField()
     
     class Meta:
         ordering=["nombreDelJuego"]
         
     def __str__(self):
-        return f"{self.nombreDelJuego}, {self.autor}"
+        return f"{self.nombreDelJuego}"
     
  
     
