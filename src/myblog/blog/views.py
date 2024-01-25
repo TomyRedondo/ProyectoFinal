@@ -121,18 +121,18 @@ def usuarios_videojuego(request):
     
     if request.method == "POST":
         nombreDelJuego = request.POST.get("nombreDelJuego")
+        autor = request.POST.get("autor")
         email = request.POST.get("email")
         fecha = request.POST.get("fecha")
         print(f"""
               Nombre: {nombreDelJuego}
-              Seudo: {fecha}
+              Autor: {autor}
               Email: {email}
+              Fecha: {fecha}
               """)
         
-        juego = Videojuego(nombreDelJuego=nombreDelJuego, email=email, fecha=fecha)
+        juego = Videojuego(nombreDelJuego=nombreDelJuego, autor=autor, email=email, fecha=fecha)
         juego.save()
         return render(request, 'index.html')
         
     return render(request, 'usuarios_videojuego.html')
-
-# class Videojuego
