@@ -2,7 +2,9 @@ from django.http import HttpResponse
 from django.shortcuts import render
 from blog.models import Manga, Videojuego
 from blog.forms import Mangaformulario
-        
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView        
 
 def index(request):
     return render(request, 'index.html')
@@ -123,16 +125,42 @@ def usuarios_videojuego(request):
         nombreDelJuego = request.POST.get("nombreDelJuego")
         autor = request.POST.get("autor")
         email = request.POST.get("email")
-        fecha = request.POST.get("fecha")
         print(f"""
               Nombre: {nombreDelJuego}
               Autor: {autor}
               Email: {email}
-              Fecha: {fecha}
               """)
         
-        juego = Videojuego(nombreDelJuego=nombreDelJuego, autor=autor, email=email, fecha=fecha)
+        juego = Videojuego(nombreDelJuego=nombreDelJuego, autor=autor, email=email)
         juego.save()
         return render(request, 'index.html')
         
     return render(request, 'usuarios_videojuego.html')
+
+
+class VideojuegoList(ListView):
+    model = Videojuego
+    template_name = 'juego_list.html'
+
+class VideojuegoDetalle(DetailView):
+    model = Videojuego
+    template_name = 'videojuegos_detalle.html'
+    
+class VideojuegoCreacion(CreateView):
+    model = Videojuego
+    fields = ['nombreDelJuego', 'email', 'autor']
+    template_name = 'juego_form.html'
+    success_url = "/blog/videojuego/list"
+    
+class VideojuegoUpdate(UpdateView):
+    model = Videojuego
+    fields = ['nombreDelJuego', 'email', 'autor']
+    template_name = 'juego_form.html'
+    success_url = "/blog/videojuego/list"
+    
+class VideojuegoDelete(DeleteView):
+    model = Videojuego
+    template_name = 'juego_confirm_delete.html'
+    success_url = "/blog/videojuego/list"
+
+

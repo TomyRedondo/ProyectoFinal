@@ -14,10 +14,8 @@ class Manga(models.Model):
         
 class Videojuego(models.Model):
     nombreDelJuego = models.CharField(max_length=100)
-    email = models.EmailField()
     autor = models.CharField(max_length=20)
-    fecha = models.DateField()
-
+    email = models.EmailField()
     
     class Meta:
         ordering=["nombreDelJuego"]

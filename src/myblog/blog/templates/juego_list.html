@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Listado de Curso</title>
+</head>
+<body>
+    <ul>
+        {% for videojuego in object_list %}
+            <li>
+                <p>Videojuego: {{videojuego.nombreDelJuego}}</p>
+                <p>
+                    <a href="{% url 'Detail' videojuego.id %}">Ver</a>
+                    <a href="{% url 'Edit' videojuego.id %}">Editar</a>
+                    <a href="{% url 'Delete' videojuego.id %}">Borrar</a>
+                    <a href="{% url 'Create' videojuego.id %}">Crear</a>
+                </p>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
