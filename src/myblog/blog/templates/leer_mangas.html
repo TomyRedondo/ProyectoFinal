@@ -7,8 +7,14 @@
 </head>
 <body>
     {% for p in mangas %}
-    <li>{{p}}</li>
+    <li>{{p}}</li> 
+    {% if p.nombreDelManga %}
+    <button>
+        <a href="{% url 'eliminar_manga' p.nombreDelManga %}">Eliminar</a>
+    </button>
+    {% endif %}
     {% endfor %}
+    <br>
     <a href="{% url 'mangas' %}">Agregar manga</a>
 </body>
 </html>

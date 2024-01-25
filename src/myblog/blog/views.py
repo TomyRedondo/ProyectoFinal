@@ -18,7 +18,6 @@ def mangas(request):
         print(datos_manga)
 
         if datos_manga.is_valid():
-            
             # datos_base = datos_manga.cleaned_data
             datos = datos_manga.cleaned_data
             nombre = datos.get("nombreDelManga")
@@ -31,7 +30,8 @@ def mangas(request):
             return render(request, 'index.html')
             # datos = Manga(nombreDelManga=datos_base["nombreDelManga"], autor=datos_base["autor"], email=datos_base["email"])
 
-            
+        else:
+            mangaFormulario = Mangaformulario()
         
     else:
         mangaFormulario = Mangaformulario()
@@ -97,26 +97,40 @@ def leer_mangas(request):
     return render(request, 'leer_mangas.html', contexto)
 
 
+def eliminar_manga(request, nombreDelManga):
+    
+    manga = Manga.objects.filter(nombreDelManga=nombreDelManga)
+    
+    manga.delete()
+    
+    mangas = Manga.objects.all()
+    
+    contexto = {"mangas": mangas}
+
+    return render(request, 'leer_mangas.html', contexto)
+    
+
+
 # ------------- VIDEOJUEGOS -------------------
 
 def videojuegos(request):
-    return render(request, 'videojuegos.html')
+    return render(request, 'videojueos.html')
 
 
 def usuarios_videojuego(request):
     
     if request.method == "POST":
         nombreDelJuego = request.POST.get("nombreDelJuego")
-        fechaDeEntrega = request.POST.get("fechaDeEntrega")
+        fecha = request.POST.get("fecha")
         email = request.POST.get("email")
         print(f"""
               Nombre: {nombreDelJuego}
-              Seudo: {fechaDeEntrega}
+              Seudo: {fecha}
               Email: {email}
               """)
         
-        manga = Manga(nombreDelJuego=nombreDelJuego, fechaDeEntrega=fechaDeEntrega, email=email)
-        manga.save()
+        juego = Videojuego(nombreDelJuego=nombreDelJuego, fecha=fecha, email=email)
+        juego.save()
         return render(request, 'index.html')
         
     return render(request, 'usuarios_videojuego.html')

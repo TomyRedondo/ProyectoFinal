@@ -9,7 +9,7 @@ class Manga(models.Model):
         ordering=["nombreDelManga"]
     
     def __str__(self):
-        return f"{self.nombreDelManga}, {self.autor}"
+        return f"{self.nombreDelManga}"
 
         
 class Videojuego(models.Model):
