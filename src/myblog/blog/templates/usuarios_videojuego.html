@@ -6,7 +6,7 @@
     <title>Juegos</title>
 </head>
 <body>
-    <h1>Usuarios de Videojuegos</h1>
+    <h1>Registrá tu Videojuegos</h1>
     <form action="{% url 'usuarios_videojuego' %}" method="post">
         {% csrf_token %}
         <p>Nombre del Juego: <input type="text" name="nombreDelJuego"></p>

@@ -1,10 +1,16 @@
 from django.http import HttpResponse
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+
 from blog.models import Manga, Videojuego
 from blog.forms import Mangaformulario
+
 from django.views.generic import ListView
 from django.views.generic.detail import DetailView
-from django.views.generic.edit import CreateView, UpdateView, DeleteView        
+from django.views.generic.edit import CreateView, UpdateView, DeleteView     
+
+from django.contrib.auth.forms import AuthenticationForm, UserCreationForm
+from django.contrib.auth import login, authenticate
+from django.contrib.auth.decorators import login_required
 
 def index(request):
     return render(request, 'index.html')
@@ -89,7 +95,7 @@ def buscar_manga(request):
         return render(request, "busqueda.html", {'mangas': mangas})
     return HttpResponse(f"Se busco el manga: {mangas}")
 
-
+@login_required
 def leer_mangas(request):
     
     mangas = Manga.objects.all()
@@ -110,7 +116,22 @@ def eliminar_manga(request, nombreDelManga):
     contexto = {"mangas": mangas}
 
     return render(request, 'leer_mangas.html', contexto)
-    
+
+def editar_manga(request, nombreDelManga):
+    manga = Manga.objects.get(nombreDelManga=nombreDelManga)
+
+    if request.method == "POST":
+        formulario = Mangaformulario(request.POST)
+        if formulario.is_valid():
+            manga.nombreDelManga = formulario.cleaned_data['nombreDelManga']
+            manga.autor = formulario.cleaned_data['autor']
+            manga.email = formulario.cleaned_data['email']
+            manga.save()
+            return redirect('leer_mangas')
+    else:
+        formulario = Mangaformulario(initial={"nombreDelManga": manga.nombreDelManga, "autor": manga.autor, "email": manga.email})
+
+    return render(request, "editar_manga.html", {"formulario": formulario, "manga_nombreDelManga": nombreDelManga})
 
 
 # ------------- VIDEOJUEGOS -------------------
@@ -163,4 +184,49 @@ class VideojuegoDelete(DeleteView):
     template_name = 'juego_confirm_delete.html'
     success_url = "/blog/videojuego/list"
 
+
+# ------------- LOGIN -------------------
+
+
+def login_request(request):
+    
+    if request.method == 'POST':
+        
+        form = AuthenticationForm(request, data =request.POST)
+
+        if form.is_valid():
+            username = form.cleaned_data.get("username")
+            password = form.cleaned_data.get("password")
+            
+            user = authenticate(username=username, password=password)
+            
+            if user is not None:
+                login(request, user)
+
+                return render(request, 'index.html', {"mensaje": f"Bienvenido '{username}'"})
+            else:
+                return render(request, 'index.html', {"mensaje": f"Usuario o contraseña incorrectos"})
+        else:
+            return render(request, 'index.html', {"mensaje": "Datos form incorrectos"})
+    
+    form = AuthenticationForm()
+    return render(request, 'login.html', {"form": form})
+
+def registrar(request):
+    
+    if request.method == 'POST':
+
+        form = UserCreationForm(request.POST) 
+
+        if form.is_valid():
+            
+            username = form.cleaned_data.get("username")
+            form.save()
+            
+            return render(request, 'index.html', {"mensaje": f"Se dio de alta el usuario {username}"})
+    
+    form = UserCreationForm()
+    return render(request, 'registrar.html', {"form": form})
+    
+    
 

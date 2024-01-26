@@ -12,9 +12,17 @@
     <button>
         <a href="{% url 'eliminar_manga' p.nombreDelManga %}">Eliminar</a>
     </button>
+    <button>
+        <a href="{% url 'editar_manga' p.nombreDelManga %}">Editar</a>
+    </button>
     {% endif %}
     {% endfor %}
-    <br>
-    <a href="{% url 'mangas' %}">Agregar manga</a>
+    <br><br>
+    <button>
+        <a href="{% url 'mangas' %}">Agregar manga</a>
+    </button>
+    <button>
+        <a href="{% url 'index' %}">Volver a inicio</a>
+    </button>
 </body>
 </html>

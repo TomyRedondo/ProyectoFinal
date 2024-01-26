@@ -3,15 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mangas</title>
+    <title>Editar Manga</title>
 </head>
 <body>
-    <h1>Registrá tu Manga</h1>
-    <form action="{% url 'usuarios_manga' %}" method="post">
+    <form action="{% url 'editar_manga' nombreDelManga=manga_nombreDelManga %}" method="post">
         {% csrf_token %}
-        <p>Nombre del Manga: <input type="text" name="nombreDelManga"></p>
-        <p>Autor: <input type="text" name="autor"></p>
-        <p>Email: <input type="email" name="email"></p>
         <table>
             {{formulario.as_table}}
         </table>
