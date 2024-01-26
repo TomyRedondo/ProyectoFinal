@@ -1,8 +1,8 @@
 from django.db import models
     
 class Manga(models.Model):
-    nombreDelManga = models.CharField(max_length=30)
-    autor = models.CharField(max_length=20)
+    nombreDelManga = models.CharField(max_length=100)
+    autor = models.CharField(max_length=100)
     email = models.EmailField()
     
     class Meta:
@@ -14,7 +14,7 @@ class Manga(models.Model):
         
 class Videojuego(models.Model):
     nombreDelJuego = models.CharField(max_length=100)
-    autor = models.CharField(max_length=20)
+    autor = models.CharField(max_length=100)
     email = models.EmailField()
     
     class Meta:
