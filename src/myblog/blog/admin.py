@@ -3,4 +3,3 @@ from blog.models import Manga, Videojuego
 
 admin.site.register(Manga)
 admin.site.register(Videojuego)
-

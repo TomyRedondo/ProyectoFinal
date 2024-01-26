@@ -227,6 +227,3 @@ def registrar(request):
     
     form = UserCreationForm()
     return render(request, 'registrar.html', {"form": form})
-    
-    
-

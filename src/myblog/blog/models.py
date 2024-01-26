@@ -22,7 +22,3 @@ class Videojuego(models.Model):
         
     def __str__(self):
         return f"{self.nombreDelJuego}"
-    
- 
-    
-    
